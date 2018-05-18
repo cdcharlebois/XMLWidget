@@ -17,7 +17,7 @@ define([
     "XMLWidget/lib/jquery-1.11.2",
     "XMLWidget/lib/ace",
     "dojo/text!XMLWidget/widget/template/XMLWidget.html"
-], function (declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, dojoConstruct, dojoArray, lang, dojoText, dojoHtml, dojoEvent, _jQuery, ace,widgetTemplate) {
+], function (declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, dojoConstruct, dojoArray, lang, dojoText, dojoHtml, dojoEvent, _jQuery, _ace,widgetTemplate) {
     "use strict";
 
     var $ = _jQuery.noConflict(true);
@@ -62,8 +62,8 @@ define([
             logger.debug(this.id + "._updateRendering");
 
             var editor = ace.edit("editor");
-            this.editor.setTheme("ace/theme/monokai");
-            this.editor.getSession().setMode("ace/mode/xml");
+            editor.setTheme("ace/theme/monokai");
+            editor.getSession().setMode("ace/mode/xml");
 
             this._executeCallback(callback, "_updateRendering");
         },
