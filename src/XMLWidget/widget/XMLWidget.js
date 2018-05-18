@@ -61,7 +61,7 @@ define([
         _updateRendering: function (callback) {
             logger.debug(this.id + "._updateRendering");
 
-            this.editor = ace.edit("editor");
+            var editor = ace.edit("editor");
             this.editor.setTheme("ace/theme/monokai");
             this.editor.getSession().setMode("ace/mode/xml");
 
@@ -73,7 +73,7 @@ define([
             logger.debug(this.id + "._execMf");
             if (mf && guid) {
                 mx.ui.action(mf, {
-                    params: {
+                    params: { 
                         applyto: "selection",
                         guids: [guid]
                     },
