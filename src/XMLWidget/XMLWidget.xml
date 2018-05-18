@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="XMLWidget.widget.XMLWidget" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>XMLWidget</name>
+    <description>The description of this widget.</description>
+
+    <icon />
+
+    <properties>
+        <property key="field" type="attribute" >
+            <caption>Attribute</caption>
+            <category>General</category>
+            <description></description>
+            <attributeTypes>
+             <attributeType name ="String" />
+            </attributeTypes>
+        </property>
+    </properties>
+</widget>
