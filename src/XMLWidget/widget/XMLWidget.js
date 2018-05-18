@@ -29,7 +29,7 @@ define([
 
         widgetBase: null,
         //editor: null,
-        node:null,
+        field:null,
         // Internal variables.
         _handles: null,
         _contextObj: null,
@@ -60,11 +60,11 @@ define([
 
         _updateRendering: function (callback) {
             logger.debug(this.id + "._updateRendering");
-
+            var value = "" + this._contextObj.get(this.field);
             var editor = ace.edit("editor");
-            editor.setTheme("ace/theme/monokai");
-            editor.getSession().setMode("ace/mode/xml");
-
+            //editor.setTheme("ace/theme/monokai");
+            //editor.getSession().setMode("ace/mode/xml");
+            editor.setValue(value);
             this._executeCallback(callback, "_updateRendering");
         },
 
