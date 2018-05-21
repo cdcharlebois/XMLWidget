@@ -30,6 +30,8 @@ define([
         widgetBase: null,
         //editor: null,
         field:null,
+        node:null,
+        onClickMicroflow: null,
         // Internal variables.
         _handles: null,
         _contextObj: null,
@@ -67,27 +69,7 @@ define([
             editor.setValue(value);
             this._executeCallback(callback, "_updateRendering");
         },
-
-        // Shorthand for running a microflow
-        _execMf: function (mf, guid, cb) {
-            logger.debug(this.id + "._execMf");
-            if (mf && guid) {
-                mx.ui.action(mf, {
-                    params: { 
-                        applyto: "selection",
-                        guids: [guid]
-                    },
-                    callback: lang.hitch(this, function (objs) {
-                        if (cb && typeof cb === "function") {
-                            cb(objs);
-                        }
-                    }),
-                    error: function (error) {
-                        console.debug(error.description);
-                    }
-                }, this);
-            }
-        },
+       
 
         // Shorthand for executing a callback, adds logging to your inspector
         _executeCallback: function (cb, from) {

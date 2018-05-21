@@ -14,5 +14,6 @@
              <attributeType name ="String" />
             </attributeTypes>
         </property>
+        
     </properties>
 </widget>
