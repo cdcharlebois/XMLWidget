@@ -70,9 +70,25 @@ define([
                 this._contextObj.set(this.field, editor.getValue());
             }.bind(this));
 
-            editor.setTheme("ace/theme/monokai");
+            editor.setTheme("ace/theme/tomorrow");
             editor.getSession().setMode("ace/mode/xml");
             editor.setValue(value);
+
+            var heightUpdateFunction = function() {
+				// http://stackoverflow.com/questions/11584061/
+				var newHeight =
+					editor.getSession().getScreenLength() * editor.renderer.lineHeight + editor.renderer.scrollBar.getWidth();
+				$('#editor').height(newHeight.toString() + "px");
+				$('#editor-section').height(newHeight.toString() + "px");
+				// This call is required for the editor to fix all of
+				// its inner structure for adapting to a change in size
+				editor.resize();
+			};
+			// Set initial size to match initial content
+			heightUpdateFunction();
+			// Whenever a change happens inside the ACE editor, update
+			// the size again
+			editor.getSession().on('change', heightUpdateFunction);
             this._executeCallback(callback, "_updateRendering");
         },
 

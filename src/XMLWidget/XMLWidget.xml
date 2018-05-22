@@ -6,7 +6,7 @@
     <icon />
 
     <properties>
-        <property key="field" type="attribute" >
+        <property key="field" type="attribute" required="true">
             <caption>Attribute</caption>
             <category>General</category>
             <description></description>
